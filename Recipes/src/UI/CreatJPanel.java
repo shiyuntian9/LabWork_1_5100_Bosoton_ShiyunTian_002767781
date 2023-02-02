@@ -291,7 +291,7 @@ public class CreatJPanel extends javax.swing.JPanel {
         String eMail = eMailText.getText();
         String phone = phoneText.getText();
         Pattern pattern;
-        String emailValidate = "^ [a-zA-Z0-9_+&*-]+ (?:11. [a-zA-Z0-9_+&*-]+) *@(?: [a-zA-Z0-9-]+|1.)+ [a-zA-Z]{2,77}$";       
+        String emailValidate = "^(.+)@(\\S+)$";       
         if(userNameTxt.getText().isEmpty() || eMailText.getText().isEmpty() || phoneText.getText().isEmpty() ){
            JOptionPane.showMessageDialog(this, "Cannot be empty");
             }if(isExist(userNameTxt.getText())== false){
@@ -307,19 +307,13 @@ public class CreatJPanel extends javax.swing.JPanel {
                  
                     pattern=Pattern.compile (emailValidate);
                     if(pattern.matcher (eMail).matches ()){
-                    System.out.println (1);
+                     this.person.seteMail(eMail);
                      }
                         else{
-                            JOptionPane.showMessageDialog(null,"Email is not correct'");
+                            JOptionPane.showMessageDialog(null,"Email is not correct");
                             return;
                             }
-                     String nameValidate = "^[A-Za-z]+$";
-                    pattern=Pattern.compile (nameValidate);
-                    if (pattern.matcher (userN) .matches () ){
-        
-                    }
-                    else{JOptionPane.showMessageDialog(null,"userName is not correct");
-                    this.person.seteMail(eMail);   }    
+                        
                     
         
         
